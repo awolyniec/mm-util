@@ -1,0 +1,13 @@
+{
+  "name": "@awolyniec/mm-util",
+  "version": "0.1.0",
+  "description": "Utils, config, and server URLs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awolyniec/mm-util.git"
+  }
+}
