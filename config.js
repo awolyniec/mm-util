@@ -6,11 +6,17 @@ const config = {
   base: {},
   development: {
     mmQuery: {
+      domain: 'localhost',
+      port: 3001,
       mongo: {
         domain: 'localhost',
-        port: '27017',
+        port: 27017,
         db: 'meme-mart'
       }
+    },
+    memeMart: {
+      domain: 'localhost',
+      port: 3000
     }
   }
 };
