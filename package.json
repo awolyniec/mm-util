@@ -9,5 +9,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/awolyniec/mm-util.git"
+  },
+  "dependencies": {
+    "extend": "^3.0.2"
   }
 }
