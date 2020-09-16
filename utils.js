@@ -1,10 +1,35 @@
+const querystring = require('querystring');
+
 const config = require('./config');
 
 const protocolDomainAndPort = (protocol, domain, port) => `${protocol}://${domain}` + (port ? `:${port}` : '');
 
 // replaces :<pathFragment> with URL params; creates query string based on queryParams (passed as key-value pairs)
-const path = (path, queryParams) => {
-  throw new Error('Not yet implemented');
+// path: must begin with "/"; may have params that take the form ":paramName". The path is assumed to be well-formed
+const path = (path, queryParams = {}) => {
+  if (!path) {
+    throw new Error('No path provided.');
+  }
+
+  let newPath = path;
+  let queryStringValues = {};
+  for (let key of Object.keys(queryParams)) {
+    const value = queryParams[key];
+    const param = `:${key}`;
+    if (newPath.indexOf(param) > 0) {
+      newPath = newPath.replace(param, value);
+    } else {
+      queryStringValues[key] = value;
+    }
+  }
+  if (newPath.indexOf(':') >= 0) {
+    throw new Error('Values missing for path params');
+  }
+  let queryString = querystring.stringify(queryStringValues);
+  if (queryString) {
+    newPath += '?' + queryString;
+  }
+  return newPath;
 };
 
 const url = (protocol, service, path = '') => {
