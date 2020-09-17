@@ -1,6 +1,6 @@
 {
   "name": "@awolyniec/mm-util",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Utils, config, and server URLs",
   "main": "index.js",
   "scripts": {
